@@ -1,35 +1,35 @@
 
 class Puzzle {
+
     constructor(rows, cols, id) {
         this.id = `game-board-${id}`
         this.rows = rows;
         this.cols = cols;
         this.emptyRow = rows - 1;
         this.emptyCol = cols - 1;
-        this.creategameBoard()
-        this.cells = this.createBoard();
-        this.values = this.createInitValues(this.rows, this.cols, this.emptyRow, this.emptyCol)
+        this.createGameBoard()
+        this.cells = this.fillGameBoard();
+        this.values = this.createInitValues()
         this.values = this.shuffleBoard(this.values)
         this.setEmptyCell()
         this.addListeners()
         this.draw()
     }
 
-    creategameBoard() {
-        const container = document.getElementById('puzzle-container')
 
-        let table = document.createElement('table')
+    createGameBoard() {
+        const container = document.getElementById('puzzle-container')
+        const table = document.createElement('table')
         table.setAttribute('id', this.id)
         container.appendChild(table)
         console.log(container);
-
     }
 
-    createBoard() {
+
+    fillGameBoard() {
         let gameBoard = document.getElementById(this.id);
         gameBoard.innerHTML = ''
         let cells = [];
-
         for (let row = 0; row < this.rows; row++) {
             let tr = document.createElement('tr');
             gameBoard.appendChild(tr);
@@ -46,17 +46,16 @@ class Puzzle {
     }
 
 
-
-    createInitValues(nRow, Ncol, emptyRow, emptyCol) {
+    createInitValues() {
         let board = [];
-        for (let row = 0; row < nRow; row++) {
+        for (let row = 0; row < this.rows; row++) {
             board[row] = [];
-            for (let col = 0; col < Ncol; col++) {
-                if (row === emptyRow && col === emptyCol) {
+            for (let col = 0; col < this.cols; col++) {
+                if (row === this.emptyRow && col === this.emptyCol) {
                     board[row][col] = 0;
                     board
                 } else {
-                    board[row][col] = row * Ncol + col + 1;
+                    board[row][col] = row * this.cols + col + 1;
                     board[row][col]
                     board
                 }
@@ -65,6 +64,7 @@ class Puzzle {
 
         return board;
     }
+
 
     shuffleBoard(board) {
         let flatBoard = board.flat();
@@ -221,10 +221,11 @@ class Puzzle {
 
 
 function init() {
-
     let numRows = document.getElementById('numRows').value
     let numCols = document.getElementById('numCols').value
     const game = new Puzzle(numRows, numCols, id)
     id++
 }
+
 let id = 1
+init()
