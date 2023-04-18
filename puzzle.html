@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>15 Puzzle Game</title>
+    <link rel="stylesheet" type="text/css" href="puzzle.css">
+</head>
+
+<body>
+    <h1>15 Puzzle Game</h1>
+    <div id="puzzle-container">
+        <!-- <table id="game-board" style="border: 1px solid black"></table> -->
+    </div>
+    <form>
+        <div>
+
+            <label for="numRows">Number of Rows:</label>
+            <input type="number" id="numRows" name="numRows" min="2" max="30" value="4">
+        </div>
+        <div>
+
+            <label for="numCols">Number of Columns:</label>
+            <input type="number" id="numCols" name="numCols" min="2" max="30" value="4">
+        </div>
+        <button type="button" onclick="init()">Create Puzzle</button>
+    </form>
+    <script src="puzzle.js"></script>
+</body>
+
+</html>
