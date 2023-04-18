@@ -122,30 +122,29 @@ class Puzzle {
         );
     }
 
-
+    
     moveTile(clickedRow, clickedColumn) {
-
-
         if ((clickedRow == this.emptyRow) && (clickedColumn - this.emptyCol == 1)) {
             this.emptyCol++
             const value = this.values[clickedRow][clickedColumn]
             this.values[clickedRow][clickedColumn] = 0
             this.values[clickedRow][clickedColumn - 1] = value
-
-
         }
+
         else if ((clickedRow == this.emptyRow) && (clickedColumn - this.emptyCol == -1)) {
             this.emptyCol--
             const value = this.values[clickedRow][clickedColumn]
             this.values[clickedRow][clickedColumn] = 0
             this.values[clickedRow][clickedColumn + 1] = value
         }
+
         else if ((clickedRow - this.emptyRow == 1) && (clickedColumn == this.emptyCol)) {
             this.emptyRow++
             const value = this.values[clickedRow][clickedColumn]
             this.values[clickedRow][clickedColumn] = 0
             this.values[clickedRow - 1][clickedColumn] = value
         }
+
         else if ((clickedRow - this.emptyRow == -1) && (clickedColumn == this.emptyCol)) {
             this.emptyRow--
             const value = this.values[clickedRow][clickedColumn]
@@ -153,8 +152,8 @@ class Puzzle {
             this.values[clickedRow + 1][clickedColumn] = value
         }
 
-
     }
+
 
     isPuzzleSolved() {
         let expectedValue = 1;
@@ -179,14 +178,11 @@ class Puzzle {
             for (let col = 0; col < this.cols; col++) {
                 let v = this.values[row][col];
                 let td = this.cells[row][col];
-                if (v == 0) {
-
-                    // td.setAttribute('class', 'red')
-                }
                 td.innerHTML = v == 0 ? '' : String(v);
             }
         }
     }
+
 
     addListeners() {
         const table = document.getElementById(this.id);
@@ -197,8 +193,9 @@ class Puzzle {
                 const rowIndex = td.parentNode.rowIndex;
                 this.handleClick(rowIndex, cellIndex)
             }
-        });
+        })
     }
+
 
     handleClick(rowIndex, cellIndex) {
         if (this.canMoveTile(rowIndex, cellIndex)) {
@@ -210,12 +207,6 @@ class Puzzle {
 
 
 }
-
-
-
-
-
-
 
 
 
