@@ -1,6 +1,10 @@
 # Selected-Geeks Interview - Sepehr Sharifi - 2023 
 This is a project I created for an interview with GitHub. It's a puzzle game similar to the classic 15 puzzle, but with the added twist that it allows for different numbers of columns and rows.
 
+# Important Note
+
+it's important to note that the project was completed within a limited timeframe of 4 hours. As a result, some best practices and optimizations may not have been fully implemented.
+
 # Puzzle Validation 
 
 One important note is that the puzzle validation (if a puzzle is solvable or if it is solved) may not work properly due to the complexity of allowing for different inputs for rows and columns. Unfortunately, I was unable to find adequate support for this issue online, and the short deadline for the interview made it difficult to fully address this challenge.
